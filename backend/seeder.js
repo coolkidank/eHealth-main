@@ -11,6 +11,8 @@ import ambulances from "./data/ambulances.js";
 import Ambulances from "./models/ambulancesModel.js";
 import Appoinment from "./models/appointmentModel.js";
 import connectDB from './config/db.js';
+import doctoruser from "./data/doctoruser";
+import DoctorUser from "./models/doctoruserModel";
 
 
 dotenv.config();
@@ -25,10 +27,13 @@ const importData = async () => {
     await Doctors.deleteMany();
     await Ambulances.deleteMany();
     await User.deleteMany();
+    await DoctorUser.deleteMany();
     
     const createdUsers = await User.insertMany(users);
+    const createddoctorUsers = await DoctorUser.insertMany(doctoruser);
 
     const adminUser = createdUsers[0]._id;
+    const adminUser = createddoctorUsers[0]._id;
 
     const sampleMeds = meds.map((meds) => {
       return {...meds, user: adminUser };
@@ -61,6 +66,7 @@ const destroyData = async () => {
     await Doctors.deleteMany();
     await Ambulances.deleteMany();
     await User.deleteMany();
+    await DoctorUser.deleteMany();
     console.log("Data Destroyed!");
     process.exit();
 

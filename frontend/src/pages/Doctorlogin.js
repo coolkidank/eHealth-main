@@ -1,3 +1,6 @@
+
+
+
 import React, { useState, useEffect } from "react";
 import "../css/login.css";
 import { Link } from "react-router-dom";
@@ -5,10 +8,10 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../actions/userAction";
+import { Doctorlogin } from "../actions/doctoruserActions";
 import FormContainer from "../components/FormContainer";
 
-const Login = ({location , history}) => {
+const DoctorLogin = ({location , history}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,12 +30,12 @@ const Login = ({location , history}) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(login(email, password));
+    dispatch(Doctorlogin(email, password));
   };
 
   return (
     <FormContainer>
-      <h1>Login To  eHealth</h1>
+      <h1>Login To Doctor eHealth</h1>
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
@@ -69,16 +72,8 @@ const Login = ({location , history}) => {
           </Link>
         </Col>
       </Row>
-      <Row className="py-3">
-        <Col>
-          Are you a Doctor?{" "}
-          <Link to={ "/Doctorlogin"}>
-            Login here
-          </Link>
-        </Col>
-      </Row>
     </FormContainer>
   );
 };
 
-export default Login;
+export default DoctorLogin;

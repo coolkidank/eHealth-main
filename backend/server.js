@@ -8,6 +8,7 @@ import doctorsRouter from "./routes/doctorsRoutes.js";
 import ambulancesRouter from "./routes/ambulancesRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import appoinmentRouter from "./routes/appoinmentRoutes.js";
+import doctoruserRouter from "./routes/doctoruserRoutes.js";
 
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
@@ -25,6 +26,7 @@ app.use("/api/ambulances", ambulancesRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/appoinment", appoinmentRouter);
+app.use("/api/doctoruser", doctoruserRouter)
 
 app.use("/api/config/paypal", (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)

@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message.js'
 import Loader from '../components/Loader.js'
 import FormContainer from '../components/FormContainer.js'
-import { register } from '../actions/userAction.js'
+import { register } from '../actions/doctoruserActions'
 
-const RegisterScreen = ({ location, history }) => {
+const DoctorSignup = ({ location, history }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -38,7 +38,7 @@ const RegisterScreen = ({ location, history }) => {
 
   return (
     <FormContainer>
-      <h1>Sign Up</h1>
+      <h1>Doctor Sign Up</h1>
       {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
@@ -98,8 +98,8 @@ const RegisterScreen = ({ location, history }) => {
       </Row>
       <Row className='py-3'>
         <Col>
-          are you a Doctor?{' '}
-          <Link to={ '/DoctorSignup'}>
+          are you a Patient?{' '}
+          <Link to={redirect ? `/Login?redirect=${redirect}` : '/Login'}>
             Login
           </Link>
         </Col>
@@ -108,4 +108,4 @@ const RegisterScreen = ({ location, history }) => {
   )
 }
 
-export default RegisterScreen
+export default DoctorSignup

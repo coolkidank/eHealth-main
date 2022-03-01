@@ -12,6 +12,7 @@ import CartScreen from "./pages/screen/CartScreen.js";
 import ProfileScreen from "./pages/screen/ProfileScreen";
 import Signup from "./pages/Signup.js";
 import Login from "./pages/Login.js";
+import DoctorLogin from "./pages/Doctorlogin";
 import { Container } from "react-bootstrap";
 import Navbar from "../src/components/Navbar.js";
 import ShippingScreen from "./pages/screen/ShippingScreen";
@@ -28,6 +29,8 @@ import AmbulanceListScreen from "./pages/screen/AmbulanceListScreen";
 import ChatScreen from './pages/screen/ChatScreen'
 import AppoinmentScreen from "./pages/screen/AppoinmentScreen";
 import AppoinmentListScreen from "./pages/screen/AppoinmentListScreen";
+
+import DoctorSignup from "./pages/DoctorSignup";
 
 function App() {
   return (
@@ -52,6 +55,7 @@ function App() {
         <Route exact path="/placeorder" component={PlaceOrderScreen} />
         <Route exact path="/appoinment" component={AppoinmentScreen} />
         <Route exact path="/Signup" component={Signup} />
+        <Route exact path="/DoctorSignup" component={DoctorSignup} />
         <Route exact path="/ProfileScreen" component={ProfileScreen} />
         <Route exact path="/admin/userlist" component={UserListScreen} />
         <Route exact path="/admin/medlist" component={MedicineListScreen} />
@@ -70,6 +74,7 @@ function App() {
           component={MedicineEditScreen}
         />
         <Route exact path="/Login" component={Login} />
+        <Route exact path="/DoctorLogin" component={DoctorLogin} />
       </Container>
     </BrowserRouter>
   );
